@@ -11,6 +11,6 @@ export default StyleSheet.create({
     justifyContent: "center",
   },
   tabbar: {
-    backgroundColor: "#009E4D",
+    backgroundColor: "#4F4F4F",
   },
 });

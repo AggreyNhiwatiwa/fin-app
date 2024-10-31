@@ -5,10 +5,10 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   headerStyle: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#4F4F4F",
   },
   headerTintColor: {
-    color: "#009E4D",
+    color: "#AEFF00",
   },
   headerTitleStyle: {
     fontWeight: "bold",

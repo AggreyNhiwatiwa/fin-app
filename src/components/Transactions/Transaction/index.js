@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
 import { TransactionContext } from "../../../contexts/TransactionContext";
 import { useNavigation } from "@react-navigation/native";
+import { DataTable } from "react-native-paper";
 
 /*
 Component that renders a single Transaction item.
@@ -50,18 +51,19 @@ export default function Transaction({ id, name, amount, date }) {
   // Filter returns a new array, .find returns a single object
   const handleTransactionPress = () => {
     const pressedTransaction = transactions.find(
-      (transaction) => transaction.id !== id
+      (transaction) => transaction.id === id
     );
     setCurrentTransaction(pressedTransaction);
-
     navigation.navigate("TransactionDetailScreen");
   };
 
   return (
     <Pressable onPress={handleTransactionPress}>
-      <View style={styles.container}>
-        <Text>{name}</Text>
-      </View>
+      <DataTable.Row>
+        <DataTable.Cell>
+          <Text>{name}</Text>
+        </DataTable.Cell>
+      </DataTable.Row>
     </Pressable>
   );
 }

@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { DataTable } from "react-native-paper";
 import { TransactionContext } from "../../contexts/TransactionContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 /*
 Screen which shows details of a pressed Transaction.
@@ -17,6 +17,16 @@ export default function TransactionDetailScreen() {
     setCurrentTransaction,
   } = useContext(TransactionContext);
   const navigation = useNavigation();
+
+  /*
+    Dynamically setting the title based on the transaction name
+    Dependency to make sure a transaction exists before trying to set anyth
+    */
+  useEffect(() => {
+    if (currentTransaction) {
+      navigation.setOptions({ title: currentTransaction.name });
+    }
+  }, [currentTransaction]);
 
   return (
     <View style={styles.container}>
@@ -37,14 +47,14 @@ export default function TransactionDetailScreen() {
 
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.keyText}>Employee Number:</Text>
+            <Text style={styles.keyText}>Amount:</Text>
           </DataTable.Cell>
           <DataTable.Cell>{currentTransaction.amount}</DataTable.Cell>
         </DataTable.Row>
 
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.keyText}>License plate:</Text>
+            <Text style={styles.keyText}>Date:</Text>
           </DataTable.Cell>
           <DataTable.Cell>{currentTransaction.date}</DataTable.Cell>
         </DataTable.Row>

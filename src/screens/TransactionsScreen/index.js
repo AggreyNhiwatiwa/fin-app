@@ -2,7 +2,8 @@ import { FlatList, Text, View } from "react-native";
 import { useContext } from "react";
 import { TransactionContext } from "../../contexts/TransactionContext";
 import Transaction from "../../components/Transactions/Transaction";
-import styles from "../../components/TabBar/styles";
+import { DataTable } from "react-native-paper";
+import styles from "./styles";
 
 /*
 This screen / component simply renders the list of Transaction objects
@@ -21,11 +22,14 @@ export default function TransactionsScreen() {
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={transactions}
-        keyExtractor={(item) => item.id}
-        renderItem={renderItem}
-      />
+      <DataTable style={styles.dataTable}>
+        <FlatList
+          style={styles.flatListContent}
+          data={transactions}
+          keyExtractor={(item) => item.id}
+          renderItem={renderItem}
+        />
+      </DataTable>
     </View>
   );
 }

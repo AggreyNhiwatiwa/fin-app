@@ -28,11 +28,11 @@ export default function TabBar() {
           headerStyle: {
             backgroundColor: "#FFFFFF",
           },
-          headerTintColor: "#009E4D",
+          headerTintColor: "#AEFF00",
           headerTitleStyle: {
             fontWeight: "bold",
           },
-          tabBarActiveTintColor: "#000000",
+          tabBarActiveTintColor: "#AEFF00",
           tabBarInactiveTintColor: "#FFFFFF",
           tabBarIcon: ({ color }) => {
             return (
@@ -56,11 +56,11 @@ export default function TabBar() {
           headerStyle: {
             backgroundColor: "#FFFFFF",
           },
-          headerTintColor: "#009E4D",
+          headerTintColor: "#AEFF00",
           headerTitleStyle: {
             fontWeight: "bold",
           },
-          tabBarActiveTintColor: "#000000",
+          tabBarActiveTintColor: "#AEFF00",
           tabBarInactiveTintColor: "#FFFFFF",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons

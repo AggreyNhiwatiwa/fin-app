@@ -10,6 +10,8 @@ This enables the following flow of navigation:
 
 User enters the Transactions Screen, showing a list of Transactions.
 Upon pressing a specific item, they are taken to a details page.
+
+No title for the TransactionDetailsScreen as this is dynamically rendered depending on the transactions name
 */
 export default function TransactionStackNavigator() {
   const Stack = createNativeStackNavigator();
