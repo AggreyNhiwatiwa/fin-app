@@ -1,6 +1,6 @@
+import styles from "./styles";
 import { Text, View } from "react-native";
 
-//import { useVehicleList } from "../../../ListContext";
 
 /*
 This screen / component simply renders the list of Vehicle objects (The Vehicles component)
@@ -11,13 +11,8 @@ Vehicle components
 */
 export default function SummaryScreen() {
 
- //let vehiclesList = useVehicleList();
-
   return (
-    <View style={{ flex: 1 }}>
-      {/* <Vehicles
-        vehicles={vehiclesList} 
-      /> */}
+    <View style={styles.container}>
       <Text>Summary Screen</Text>
     </View>
   );

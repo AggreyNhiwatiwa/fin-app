@@ -19,7 +19,7 @@ export default function TabBar() {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: styles.tabbar,
-          headerShown: false,
+          headerShown: true,
         }}
       >
         <Tab.Screen
@@ -40,7 +40,7 @@ export default function TabBar() {
             tabBarIcon: ({ color }) => {
               return (
                 <MaterialCommunityIcons
-                  name={"book-clock"}
+                  name={"chart-line"}
                   color={color}
                   size={28}
                 />
@@ -64,11 +64,10 @@ export default function TabBar() {
             headerTitleStyle: {
               fontWeight: "bold",
             },
-            headerRight: () => <PlusIconButton />,
             tabBarActiveTintColor: "#000000",
             tabBarInactiveTintColor: "#FFFFFF",
             tabBarIcon: ({ color }) => (
-              <MaterialCommunityIcons name={"account"} color={color} size={28} />
+              <MaterialCommunityIcons name={"chart-arc"} color={color} size={28} />
             ),
           })}
         >
