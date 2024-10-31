@@ -1,5 +1,5 @@
 /*
-Styles for the add / edit new Vehicle screen
+Styles for the Summary screen
 */
 import { StyleSheet } from "react-native";
 

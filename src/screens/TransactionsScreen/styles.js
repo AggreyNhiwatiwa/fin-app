@@ -1,5 +1,5 @@
 /*
-Styles for the TasksScreen
+Styles for the Transactions screen
 */
 import { StyleSheet } from "react-native";
 

@@ -10,4 +10,6 @@ export const TransactionContext = createContext({
   //Setting defaults to an empty array and empty method
   transactions: [],
   setTransactions: () => {},
+  currentTransaction: {},
+  setCurrentTransaction: () => {},
 });

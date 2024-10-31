@@ -1,5 +1,5 @@
 /*
-Styles for each individual Task component that is rendered
+Styles for each individual Transaction component that is rendered
 */
 import { StyleSheet } from "react-native";
 

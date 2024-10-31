@@ -7,23 +7,23 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 export default function App() {
-
   const [transactions, setTransactions] = useState([]);
+  const [currentTransaction, setCurrentTransaction] = useState(null);
 
   useEffect(() => {
     const initialTransactions = [
-      { id: 1, name: "MyTransaction", amount: "200.00", date: "17th May"},
-      { id: 2, name: "TestTransaction", amount: "12.50", date: "26th May"},
+      { id: 1, name: "MyTransaction", amount: "200.00", date: "17th May" },
+      { id: 2, name: "TestTransaction", amount: "12.50", date: "26th May" },
     ];
 
     setTransactions(initialTransactions);
   }, []);
 
   /*
-  Enables the app to only be rendered when the initial tasks are added
+  Enables the app to only be rendered when the initial transactions are added
   to the state successfully.
 
-  Without this the Task items do not render due to the timing delays
+  Without this the Transaction items do not render due to the timing delays
   in the change of stage and the initial render
   */
   if (transactions === null) {
@@ -31,10 +31,17 @@ export default function App() {
   }
 
   return (
-    <TransactionContext.Provider value={{ transactions, setTransactions }}>
+    <TransactionContext.Provider
+      value={{
+        transactions,
+        setTransactions,
+        currentTransaction,
+        setCurrentTransaction,
+      }}
+    >
       <NavigationContainer style={{ flex: 1 }}>
         <TabBar />
       </NavigationContainer>
-      </TransactionContext.Provider>
+    </TransactionContext.Provider>
   );
 }

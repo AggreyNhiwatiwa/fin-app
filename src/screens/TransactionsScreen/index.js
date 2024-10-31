@@ -4,20 +4,19 @@ import { TransactionContext } from "../../contexts/TransactionContext";
 import Transaction from "../../components/Transactions/Transaction";
 import styles from "../../components/TabBar/styles";
 
-
 /*
-This screen / component simply renders the list of Vehicle objects (The Vehicles component)
-using a custom hook from the context to get the current list of vehicles.
-
-Passes the list of vehicles to the Vehicles component so it can render and map them into
-Vehicle components
+This screen / component simply renders the list of Transaction objects
 */
 export default function TransactionsScreen() {
-
   const { transactions } = useContext(TransactionContext);
 
   const renderItem = ({ item }) => (
-    <Transaction id={item.id} name={item.name} amount={item.amount} date={item.date}></Transaction>
+    <Transaction
+      id={item.id}
+      name={item.name}
+      amount={item.amount}
+      date={item.date}
+    ></Transaction>
   );
 
   return (
