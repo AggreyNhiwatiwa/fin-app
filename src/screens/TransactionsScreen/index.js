@@ -14,22 +14,22 @@ export default function TransactionsScreen() {
   const renderItem = ({ item }) => (
     <Transaction
       id={item.id}
+      recipient={item.recipient}
       name={item.name}
       amount={item.amount}
       date={item.date}
+      isExpense={item.isExpense}
     ></Transaction>
   );
 
   return (
     <View style={styles.container}>
-      <DataTable style={styles.dataTable}>
         <FlatList
           style={styles.flatListContent}
           data={transactions}
           keyExtractor={(item) => item.id}
           renderItem={renderItem}
         />
-      </DataTable>
     </View>
   );
 }

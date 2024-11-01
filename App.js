@@ -12,8 +12,8 @@ export default function App() {
 
   useEffect(() => {
     const initialTransactions = [
-      { id: 1, name: "MyTransaction", amount: "200.00", date: "17th May" },
-      { id: 2, name: "TestTransaction", amount: "12.50", date: "26th May" },
+      { id: 1, recipient:"Landlord Lender", name: "Rent", amount: "-$1275.00", date: "28-10-2024", isExpense: true},
+      { id: 2, recipient:"Tech Company", name: "Paycheck", amount: "+$2310.00", date: "25-10-2024", isExpense: false },
     ];
 
     setTransactions(initialTransactions);

@@ -7,15 +7,48 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    margin: 10,
-    width: 350,
-    height: 130,
-    alignSelf: "stretch",
+    marginBottom: 6,
+    width: 380,
+    height: 60,
+    paddingLeft: 4,
+    paddingRight: 4,
     alignItems: "center",
-    justifyContent: "space-evenly",
-    borderWidth: 1,
-    backgroundColor: "#E7DAC6",
+    justifyContent: "space-around",
+    borderWidth: 2,
   },
+  leftContainer: {
+    width: 190,
+    height: 50,
+
+  },
+  rightContainer: {
+
+    width: 190,
+    height: 50,
+    alignItems: "flex-end",
+
+  },
+  mainHeading: {
+    fontSize: "20",
+    fontWeight: "1000",
+    
+  },
+  subHeading: {
+    fontSize: "18",
+    fontWeight: "1000",
+    color: "#5C5C5C",
+
+  },
+  expenseText: {
+    color: "#8A0000",
+  
+  },
+  paymentText: {
+    color: "#007038",
+  },
+
+
 });
 
 export default styles;
+

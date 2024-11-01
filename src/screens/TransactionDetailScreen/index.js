@@ -30,13 +30,22 @@ export default function TransactionDetailScreen() {
 
   return (
     <View style={styles.container}>
-      <MaterialCommunityIcons name={"account"} size={200} style={styles.icon} />
+      {/* <MaterialCommunityIcons name={"cash-plus"} size={100} style={styles.icon} /> */}
 
       <DataTable>
-        <DataTable.Header>
-          <DataTable.Title></DataTable.Title>
-          <DataTable.Title></DataTable.Title>
-        </DataTable.Header>
+        <DataTable.Row>
+          <DataTable.Cell>
+            <Text style={styles.keyText}>Date:</Text>
+          </DataTable.Cell>
+          <DataTable.Cell>{currentTransaction.date}</DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Cell>
+            <Text style={styles.keyText}>Payee:</Text>
+          </DataTable.Cell>
+          <DataTable.Cell>{currentTransaction.recipient}</DataTable.Cell>
+        </DataTable.Row>
 
         <DataTable.Row>
           <DataTable.Cell>
@@ -50,13 +59,6 @@ export default function TransactionDetailScreen() {
             <Text style={styles.keyText}>Amount:</Text>
           </DataTable.Cell>
           <DataTable.Cell>{currentTransaction.amount}</DataTable.Cell>
-        </DataTable.Row>
-
-        <DataTable.Row>
-          <DataTable.Cell>
-            <Text style={styles.keyText}>Date:</Text>
-          </DataTable.Cell>
-          <DataTable.Cell>{currentTransaction.date}</DataTable.Cell>
         </DataTable.Row>
       </DataTable>
     </View>

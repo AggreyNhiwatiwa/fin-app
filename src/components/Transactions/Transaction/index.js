@@ -3,14 +3,20 @@ import { useContext } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
 import { TransactionContext } from "../../../contexts/TransactionContext";
 import { useNavigation } from "@react-navigation/native";
-import { DataTable } from "react-native-paper";
 
 /*
 Component that renders a single Transaction item.
 The stateful list of Transaction is used to render the UI for each item.
 This list is retrieved from TransactionContext
 */
-export default function Transaction({ id, name, amount, date }) {
+export default function Transaction({
+  id,
+  recipient,
+  name,
+  amount,
+  date,
+  isExpense,
+}) {
   const { transactions, setTransactions, setCurrentTransaction } =
     useContext(TransactionContext);
   const navigation = useNavigation();
@@ -58,12 +64,24 @@ export default function Transaction({ id, name, amount, date }) {
   };
 
   return (
-    <Pressable onPress={handleTransactionPress}>
-      <DataTable.Row>
-        <DataTable.Cell>
-          <Text>{name}</Text>
-        </DataTable.Cell>
-      </DataTable.Row>
+    <Pressable style={styles.container} onPress={handleTransactionPress}>
+      <View style={styles.leftContainer}>
+        <Text style={styles.mainHeading}>{recipient}</Text>
+        <Text style={styles.subHeading}>{name}</Text>
+      </View>
+
+      <View style={styles.rightContainer}>
+        <Text
+          style={[
+            styles.mainHeading,
+            isExpense ? styles.expenseText : styles.paymentText,
+          ]}
+        >
+          {amount}
+        </Text>
+
+        <Text style={styles.subHeading}>{date}</Text>
+      </View>
     </Pressable>
   );
 }
