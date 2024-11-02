@@ -7,14 +7,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    marginBottom: 6,
+    marginBottom: 2,
     width: 380,
     height: 60,
     paddingLeft: 4,
     paddingRight: 4,
     alignItems: "center",
     justifyContent: "space-around",
-    borderWidth: 2,
+    borderBottomColor: "#5C5C5C",
+    borderBottomWidth: 2,
+
   },
   leftContainer: {
     width: 190,

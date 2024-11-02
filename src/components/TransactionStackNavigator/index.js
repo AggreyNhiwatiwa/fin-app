@@ -17,7 +17,11 @@ export default function TransactionStackNavigator() {
   const Stack = createNativeStackNavigator();
 
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions={{
+      tabBarStyle: styles.tabbar,
+      headerShown: true,
+    }}>
       <Stack.Screen
         name="TransactionsScreen"
         component={TransactionsScreen}

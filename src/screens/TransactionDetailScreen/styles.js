@@ -15,8 +15,12 @@ const styles = StyleSheet.create({
     color: "#000000",
     borderWidth: 2,
   },
-  keyText: {
+  leftText: {
+    fontSize: "18",
     fontWeight: "600",
+  },
+  rightText: {
+    fontSize: "18",
   },
 });
 

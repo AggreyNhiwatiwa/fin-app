@@ -12,8 +12,10 @@ export default function App() {
 
   useEffect(() => {
     const initialTransactions = [
-      { id: 1, recipient:"Landlord Lender", name: "Rent", amount: "-$1275.00", date: "28-10-2024", isExpense: true},
-      { id: 2, recipient:"Tech Company", name: "Paycheck", amount: "+$2310.00", date: "25-10-2024", isExpense: false },
+      { id: 1, recipient:"Landlord Lender", name: "Rent", amount: -1275.92, date: "28-10-2024", isExpense: true},
+      { id: 2, recipient:"Tech Company", name: "Paycheck", amount: 2310.28, date: "25-10-2024", isExpense: false },
+      { id: 3, recipient:"Hydro Homies", name: "Hydro bill", amount: -38.54, date: "22-10-2024", isExpense: true},
+      { id: 4, recipient:"Streamy", name: "Entertainment", amount: -6.99, date: "17-10-2024", isExpense: true },
     ];
 
     setTransactions(initialTransactions);

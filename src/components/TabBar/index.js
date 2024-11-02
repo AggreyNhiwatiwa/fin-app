@@ -22,7 +22,6 @@ export default function TabBar() {
     >
       <Tab.Screen
         name="Transactions"
-        // component={TransactionsScreen}
         options={{
           title: "Transactions",
           headerStyle: {
@@ -53,8 +52,9 @@ export default function TabBar() {
         component={SummaryScreen}
         options={() => ({
           title: "Summary",
+          headerShown: true,
           headerStyle: {
-            backgroundColor: "#FFFFFF",
+            backgroundColor: "#4F4F4F",
           },
           headerTintColor: "#AEFF00",
           headerTitleStyle: {

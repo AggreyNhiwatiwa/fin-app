@@ -1,7 +1,6 @@
 import { Alert, Text, View } from "react-native";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { DataTable } from "react-native-paper";
 import { TransactionContext } from "../../contexts/TransactionContext";
 import { useContext, useEffect } from "react";
@@ -35,30 +34,38 @@ export default function TransactionDetailScreen() {
       <DataTable>
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.keyText}>Date:</Text>
+            <Text style={styles.leftText}>Date:</Text>
           </DataTable.Cell>
-          <DataTable.Cell>{currentTransaction.date}</DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>{currentTransaction.date}</Text>
+          </DataTable.Cell>
         </DataTable.Row>
 
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.keyText}>Payee:</Text>
+            <Text style={styles.leftText}>Payee:</Text>
           </DataTable.Cell>
-          <DataTable.Cell>{currentTransaction.recipient}</DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>{currentTransaction.recipient}</Text>
+          </DataTable.Cell>
         </DataTable.Row>
 
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.keyText}>Name:</Text>
+            <Text style={styles.leftText}>Name:</Text>
           </DataTable.Cell>
-          <DataTable.Cell>{currentTransaction.name}</DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>{currentTransaction.name}</Text>
+          </DataTable.Cell>
         </DataTable.Row>
 
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.keyText}>Amount:</Text>
+            <Text style={styles.leftText}>Amount:</Text>
           </DataTable.Cell>
-          <DataTable.Cell>{currentTransaction.amount}</DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>{currentTransaction.amount}</Text>
+          </DataTable.Cell>
         </DataTable.Row>
       </DataTable>
     </View>

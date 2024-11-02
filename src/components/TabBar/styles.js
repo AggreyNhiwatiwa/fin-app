@@ -13,4 +13,13 @@ export default StyleSheet.create({
   tabbar: {
     backgroundColor: "#4F4F4F",
   },
+  headerStyle: {
+    backgroundColor: "#4F4F4F",
+  },
+  headerTintColor: {
+    color: "#AEFF00",
+  },
+  headerTitleStyle: {
+    fontWeight: "bold",
+  },
 });
