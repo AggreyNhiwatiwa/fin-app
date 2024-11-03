@@ -1,7 +1,7 @@
 import styles from "./styles";
 import { useContext } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
-import { TransactionContext } from "../../../contexts/TransactionContext";
+import { TransactionContext } from "../../contexts/TransactionContext";
 import { useNavigation } from "@react-navigation/native";
 
 /*

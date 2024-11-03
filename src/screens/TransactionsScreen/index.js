@@ -1,7 +1,7 @@
 import { FlatList, Text, View } from "react-native";
 import { useContext } from "react";
 import { TransactionContext } from "../../contexts/TransactionContext";
-import Transaction from "../../components/Transactions/Transaction";
+import Transaction from "../../components/Transaction";
 import { DataTable } from "react-native-paper";
 import styles from "./styles";
 
