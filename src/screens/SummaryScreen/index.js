@@ -87,7 +87,7 @@ export default function SummaryScreen() {
       <View style={styles.balanceContainer}>
         <Text style={styles.balanceText}>Balance</Text>
         <Text style={styles.balanceText}>
-          ${parseFloat((sumIncome + sumExpenses).toFixed(2))}
+          ${(sumIncome + sumExpenses).toFixed(2)}
         </Text>
       </View>
 
