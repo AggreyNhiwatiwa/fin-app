@@ -1,4 +1,11 @@
 /*
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
+
+/*
 Styles for the transaction details screen which shows advanced details for a specific transaction
 */
 import { StyleSheet } from "react-native";

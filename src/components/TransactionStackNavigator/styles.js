@@ -1,4 +1,11 @@
 /*
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
+
+/*
 Styles for the Transactions stack navigator
 */
 import { StyleSheet } from "react-native";

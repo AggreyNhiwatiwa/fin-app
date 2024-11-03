@@ -1,14 +1,25 @@
-import styles from "./styles";
-import { useContext } from "react";
-import { Alert, Pressable, Text, View } from "react-native";
-import { TransactionContext } from "../../contexts/TransactionContext";
-import { useNavigation } from "@react-navigation/native";
+/*
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
 
 /*
 Component that renders a single Transaction item.
 The stateful list of Transaction is used to render the UI for each item.
-This list is retrieved from TransactionContext
+
+The transactions name, recipient, date and amount are rendered in this custom component
+Upon clicking the component (which is a Pressable), it navigates to the correponding transactions' 
+details screen.
 */
+
+import styles from "./styles";
+import { useContext } from "react";
+import { Pressable, Text, View } from "react-native";
+import { TransactionContext } from "../../contexts/TransactionContext";
+import { useNavigation } from "@react-navigation/native";
+
 export default function Transaction({
   id,
   recipient,
@@ -17,44 +28,16 @@ export default function Transaction({
   date,
   isExpense,
 }) {
-  const { transactions, setTransactions, setCurrentTransaction } =
+  const { transactions, setCurrentTransaction } =
     useContext(TransactionContext);
   const navigation = useNavigation();
 
   /*
-    If the id of the current transaction is in the array, filter it out ("remove") it 
-    and return a new array, before setting the state to trigger the re-render
-    */
-  const deleteTransaction = (transactionId) => {
-    const updatedTransactions = transactions.filter(
-      (transaction) => transaction.id !== transactionId
-    );
-    setTransactions(updatedTransactions);
-  };
-
-  /*
-    Function to show the user an Alert where they can delete the current
-    transaction if they wish to do so
-    */
-  const handleDeleteTransaction = () => {
-    Alert.alert("Delete this Transaction?", "This action cannot be undone.", [
-      {
-        text: "No",
-        style: "cancel",
-      },
-      {
-        text: "Yes",
-
-        onPress: () => {
-          deleteTransaction(id);
-        },
-        style: "delete",
-      },
-    ]);
-  };
-
-  //Setting the state to the current transaction
-  // Filter returns a new array, .find returns a single object
+  Setting the state to the current transaction,
+  which is then used to get the extra details for the correct
+  transaction in the following details screen without having to prop-drill 
+  as setTransaction is located in the Context.
+  */
   const handleTransactionPress = () => {
     const pressedTransaction = transactions.find(
       (transaction) => transaction.id === id
@@ -63,6 +46,16 @@ export default function Transaction({
     navigation.navigate("TransactionDetailScreen");
   };
 
+  /*
+  Conditional rendering for styling depending on whether
+  the transaction is an expense or income
+
+  Note Math.abs(absolute) is used here to get the value irrespective
+  of polarity to then conduct the correct formatting
+  e.g/ $1000 for income or -$1000 for an expense
+
+  To fixed(2) always provides the value to 2dp (and adds trailing 0's if needed)
+  */
   return (
     <Pressable style={styles.container} onPress={handleTransactionPress}>
       <View style={styles.leftContainer}>
@@ -76,8 +69,10 @@ export default function Transaction({
             styles.mainHeading,
             isExpense ? styles.expenseText : styles.paymentText,
           ]}
-        > 
-          {amount < 0 ? `-$${Math.abs(amount).toFixed(2)}` : `$${amount.toFixed(2)}`}
+        >
+          {amount < 0
+            ? `-$${Math.abs(amount).toFixed(2)}`
+            : `$${amount.toFixed(2)}`}
         </Text>
 
         <Text style={styles.subHeading}>{date}</Text>

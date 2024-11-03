@@ -1,25 +1,17 @@
 /*
-Styling for the custom TabBar
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
+
+/*
+Styling for the custom TabBar (Bottom Tab Navigator)
 */
 import { StyleSheet } from "react-native";
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   tabbar: {
     backgroundColor: "#4F4F4F",
-  },
-  headerStyle: {
-    backgroundColor: "#4F4F4F",
-  },
-  headerTintColor: {
-    color: "#AEFF00",
-  },
-  headerTitleStyle: {
-    fontWeight: "bold",
   },
 });

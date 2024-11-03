@@ -1,14 +1,29 @@
+/*
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
+
+/*
+Nested navigation
+Bottom Tab navigation for both the Transactions screen and the Summary Screen
+The Transaction Tab Screen actually renders the Transactions Stack Navigator as a child
+for the Transactions and Transactions Details navigation route/
+Meanwhile, as the Summary Screen is a single screen, it is simply rendered as a component
+
+As for styling, the header for the Transactions screens is handled by the TransactionsStackNavigator,
+while for the summary screen it is handled here.
+
+Libraries used:
+- Material Community Icons: https://www.npmjs.com/package/react-native-vector-icons
+*/
+
 import styles from "./styles";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import SummaryScreen from "../../screens/SummaryScreen";
 import TransactionStackNavigator from "../TransactionStackNavigator";
-
-/*
-Nested navigation
-Tab Navigator with both the Summary Screen and The transactions Screen
-In the Transactions screen its custom stack navigator is nested
-*/
 
 const Tab = createBottomTabNavigator();
 
@@ -25,13 +40,6 @@ export default function TabBar() {
         name="Transactions"
         options={{
           title: "Transactions",
-          headerStyle: {
-            backgroundColor: "#FFFFFF",
-          },
-          headerTintColor: "#AEFF00",
-          headerTitleStyle: {
-            fontWeight: "bold",
-          },
           tabBarActiveTintColor: "#AEFF00",
           tabBarInactiveTintColor: "#FFFFFF",
           tabBarIcon: ({ color }) => {

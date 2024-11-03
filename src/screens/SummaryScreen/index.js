@@ -1,15 +1,41 @@
+/*
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
+
+/*
+Component that creates a Summary Screen
+
+This component renders the following:
+
+- The overall balance
+- A pie chart comparing expenses vs income
+- Todays date
+- The account name
+- The total expenses 
+- The total income
+- The total number of transactions
+
+Libraries used:
+- Material Community Icons: https://www.npmjs.com/package/react-native-vector-icons
+- React Native Paper: https://callstack.github.io/react-native-paper/docs/components/DataTable/
+- React Native Pie Chart: https://www.npmjs.com/package/react-native-pie-chart
+*/
+
 import styles from "./styles";
 import { Text, View } from "react-native";
 import { DataTable } from "react-native-paper";
 import { TransactionContext } from "../../contexts/TransactionContext";
 import { useContext, useEffect, useState } from "react";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import PieChart from "react-native-pie-chart";
 import { Dimensions } from "react-native";
 
 export default function SummaryScreen() {
   const { transactions } = useContext(TransactionContext);
 
+  //Creating local states for total expenses and income
   const [sumExpenses, setSumExpenses] = useState(0);
   const [sumIncome, setSumIncome] = useState(0);
 
@@ -37,31 +63,22 @@ export default function SummaryScreen() {
   /*
   Calculating today's date
   */
-
   const todaysDate = new Date();
   const todaysDateString = `${
     todaysDate.getMonth() + 1
   }-${todaysDate.getDate()}-${todaysDate.getFullYear()}`;
 
   /*
-  Calculate number of transactions
-  */
-
-  /*
-  useEffect hook with empty array dependency to trigger the function once,
-  as the transaction list is static
+  useEffect hook to calculate the expenses and income
   */
   useEffect(() => {
     calculate();
-    console.log("Expenses: ", sumExpenses);
-    console.log("Income: ", sumIncome);
   }, [transactions]);
 
   /*
   Creating dimensions
   */
   const windowWidth = Dimensions.get("window").width;
-  const windowHeight = Dimensions.get("window").height;
 
   const total = sumExpenses + sumIncome;
 
@@ -89,16 +106,7 @@ export default function SummaryScreen() {
         )}
       </View>
 
- 
-
-
       <DataTable style={styles.table}>
-
-
-
-
-
-
         <DataTable.Row>
           <DataTable.Cell>
             <Text style={styles.leftText}>Today's date:</Text>
@@ -107,7 +115,6 @@ export default function SummaryScreen() {
             <Text style={styles.rightText}>{todaysDateString}</Text>
           </DataTable.Cell>
         </DataTable.Row>
-
 
         <DataTable.Row>
           <DataTable.Cell>
@@ -123,7 +130,9 @@ export default function SummaryScreen() {
             <Text style={styles.expenseText}>Expenses:</Text>
           </DataTable.Cell>
           <DataTable.Cell>
-            <Text style={styles.rightText}>${(sumExpenses * -1).toFixed(2)}</Text>
+            <Text style={styles.rightText}>
+              ${(sumExpenses * -1).toFixed(2)}
+            </Text>
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -132,7 +141,7 @@ export default function SummaryScreen() {
             <Text style={styles.incomeText}>Income:</Text>
           </DataTable.Cell>
           <DataTable.Cell>
-            <Text style={styles.rightText}>${(sumIncome).toFixed(2)}</Text>
+            <Text style={styles.rightText}>${sumIncome.toFixed(2)}</Text>
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -142,15 +151,6 @@ export default function SummaryScreen() {
           </DataTable.Cell>
           <DataTable.Cell>
             <Text style={styles.rightText}>{transactions.length}</Text>
-          </DataTable.Cell>
-        </DataTable.Row>
-
-        <DataTable.Row>
-          <DataTable.Cell>
-            <Text style={styles.leftText}>Credit Score:</Text>
-          </DataTable.Cell>
-          <DataTable.Cell>
-            <Text style={styles.rightText}>973 (959)</Text>
           </DataTable.Cell>
         </DataTable.Row>
       </DataTable>

@@ -1,5 +1,12 @@
 /*
-Styles for each individual Transaction component that is rendered
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
+
+/*
+Styling for each individual Transaction component that is rendered
 */
 import { StyleSheet } from "react-native";
 
@@ -16,41 +23,31 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     borderBottomColor: "#5C5C5C",
     borderBottomWidth: 2,
-
   },
   leftContainer: {
     width: 190,
     height: 50,
-
   },
   rightContainer: {
-
     width: 190,
     height: 50,
     alignItems: "flex-end",
-
   },
   mainHeading: {
     fontSize: "20",
     fontWeight: "1000",
-    
   },
   subHeading: {
     fontSize: "18",
     fontWeight: "1000",
     color: "#5C5C5C",
-
   },
   expenseText: {
     color: "#8A0000",
-  
   },
   paymentText: {
     color: "#007038",
   },
-
-
 });
 
 export default styles;
-

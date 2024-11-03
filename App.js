@@ -1,5 +1,27 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+/*
+Aggrey Nhiwatiwa
+1152301
+INFO-6132 
+Lab 2
+*/
+
+/*
+The root component
+
+The mock static transaction data is generated here and set to the state from the context
+
+This root rendered component is the provider for the TransactionContext, making the 
+list of transactions, the current transactions and their setters globally available
+
+The navgation container renders the Tabbar (bottom tab navigator), which also renders
+the Transaction Stack Navigator
+
+Libraries used:
+- UUID: https://www.npmjs.com/package/react-native-uuid
+
+*/
+
+import { Text } from "react-native";
 import TabBar from "./src/components/TabBar";
 import { NavigationContainer } from "@react-navigation/native";
 import { TransactionContext } from "./src/contexts/TransactionContext";
@@ -43,7 +65,6 @@ export default function App() {
   /*
   Enables the app to only be rendered when the initial transactions are added
   to the state successfully.
-
   Without this the Transaction items do not render due to the timing delays
   in the change of stage and the initial render
   */
