@@ -18,6 +18,7 @@ export default function TabBar() {
       screenOptions={{
         tabBarStyle: styles.tabbar,
         headerShown: false,
+        tabBarLabelStyle: { fontSize: 12 },
       }}
     >
       <Tab.Screen
@@ -36,9 +37,9 @@ export default function TabBar() {
           tabBarIcon: ({ color }) => {
             return (
               <MaterialCommunityIcons
-                name={"chart-line"}
+                name={"bank-transfer"}
                 color={color}
-                size={28}
+                size={40}
               />
             );
           },
@@ -66,7 +67,7 @@ export default function TabBar() {
             <MaterialCommunityIcons
               name={"chart-arc"}
               color={color}
-              size={28}
+              size={40}
             />
           ),
         })}

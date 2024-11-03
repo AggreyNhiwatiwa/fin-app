@@ -4,17 +4,13 @@ import { useNavigation } from "@react-navigation/native";
 import { DataTable } from "react-native-paper";
 import { TransactionContext } from "../../contexts/TransactionContext";
 import { useContext, useEffect } from "react";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 /*
 Screen which shows details of a pressed Transaction.
 */
 export default function TransactionDetailScreen() {
-  const {
-    transactions,
-    setTransactions,
-    currentTransaction,
-    setCurrentTransaction,
-  } = useContext(TransactionContext);
+  const { currentTransaction } = useContext(TransactionContext);
   const navigation = useNavigation();
 
   /*
@@ -29,7 +25,19 @@ export default function TransactionDetailScreen() {
 
   return (
     <View style={styles.container}>
-      {/* <MaterialCommunityIcons name={"cash-plus"} size={100} style={styles.icon} /> */}
+      {currentTransaction.isExpense ? (
+        <MaterialCommunityIcons
+          name={"bank-minus"}
+          size={100}
+          style={styles.iconExpense}
+        />
+      ) : (
+        <MaterialCommunityIcons
+          name={"bank-plus"}
+          size={100}
+          style={styles.iconIncome}
+        />
+      )}
 
       <DataTable>
         <DataTable.Row>
@@ -43,7 +51,36 @@ export default function TransactionDetailScreen() {
 
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.leftText}>Payee:</Text>
+            <Text style={styles.leftText}>Time:</Text>
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>{currentTransaction.time}</Text>
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Cell>
+            <Text style={styles.leftText}>Amount:</Text>
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>${currentTransaction.isExpense ? (currentTransaction.amount * -1).toFixed(2) : currentTransaction.amount.toFixed(2)}</Text>
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Cell>
+            <Text style={styles.leftText}>Status:</Text>
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>{currentTransaction.status}</Text>
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Cell>
+            <Text style={styles.leftText}>
+              {currentTransaction.isExpense ? "Recipient:" : "Sender:"}
+            </Text>
           </DataTable.Cell>
           <DataTable.Cell>
             <Text style={styles.rightText}>{currentTransaction.recipient}</Text>
@@ -61,10 +98,19 @@ export default function TransactionDetailScreen() {
 
         <DataTable.Row>
           <DataTable.Cell>
-            <Text style={styles.leftText}>Amount:</Text>
+            <Text style={styles.leftText}>Category:</Text>
           </DataTable.Cell>
           <DataTable.Cell>
-            <Text style={styles.rightText}>{currentTransaction.amount}</Text>
+            <Text style={styles.rightText}>{currentTransaction.category}</Text>
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Cell>
+            <Text style={styles.leftText}>Transaction ID:</Text>
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Text style={styles.rightText}>{currentTransaction.id}</Text>
           </DataTable.Cell>
         </DataTable.Row>
       </DataTable>

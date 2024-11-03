@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
 
   },
   flatListContent: {
-    marginTop: 10,
     flexGrow: 1,
   },
 });

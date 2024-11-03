@@ -17,6 +17,9 @@ export default function TransactionsScreen() {
       recipient={item.recipient}
       name={item.name}
       amount={item.amount}
+      time = {item.time}
+      category = {item.category}
+      status = {item.status}
       date={item.date}
       isExpense={item.isExpense}
     ></Transaction>

@@ -76,8 +76,8 @@ export default function Transaction({
             styles.mainHeading,
             isExpense ? styles.expenseText : styles.paymentText,
           ]}
-        >
-          {amount}
+        > 
+          {amount < 0 ? `-$${Math.abs(amount).toFixed(2)}` : `$${amount.toFixed(2)}`}
         </Text>
 
         <Text style={styles.subHeading}>{date}</Text>

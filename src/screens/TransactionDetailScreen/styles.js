@@ -11,9 +11,15 @@ const styles = StyleSheet.create({
   tabbar: {
     backgroundColor: "#009E4D",
   },
-  icon: {
-    color: "#000000",
-    borderWidth: 2,
+  iconExpense: {
+    marginTop: 30,
+    marginBottom: 30,
+    color: "#8A0000",
+  },
+  iconIncome: {
+    marginTop: 30,
+    marginBottom: 30,
+    color: "#007038",
   },
   leftText: {
     fontSize: "18",
